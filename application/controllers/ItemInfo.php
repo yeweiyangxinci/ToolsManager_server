@@ -25,8 +25,7 @@ class ItemInfo extends CI_Controller{
 	 * @DateTime 2020-01-19
 	 */
 	public function Get_type(){
-		$backinfo = $this->ItemInfo_model->Get_type()
-		exit($backinfo)
+		$backinfo = $this->ItemInfo_model->Get_type();
 	}
 
 	/**
@@ -36,8 +35,22 @@ class ItemInfo extends CI_Controller{
 	 */
 	public function Insert_type(){
 		$typename = $this->input->post('typename');
-		$backinfo = $this->ItemInfo_model->Insert_type($typename)
-		exit($backinfo)
+		$backinfo = $this->ItemInfo_model->Insert_type($typename);
 	}
 
+	/**
+	 *	name: query
+	 *	function: 显示工具信息查询界面
+	 */
+	public function query(){
+		$this->load->view("student/studentInfo-list.html");
+	}
+
+	/**
+	 * 	name: add
+	 *	function: 显示增加工具界面
+	 */
+	public function add(){
+		$this->load->view("student/studentInfo-add.html");
+	}
 }

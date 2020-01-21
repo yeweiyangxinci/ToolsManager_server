@@ -11,7 +11,7 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$user = $this->session->userdata("user");
 		if($user == false){
-			redirect("/user/login");
+			redirect("/UserInfo/login");
 			exit(0);
 		}
 	}

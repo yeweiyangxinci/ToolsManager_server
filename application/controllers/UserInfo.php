@@ -33,6 +33,14 @@ class UserInfo extends CI_Controller{
     }
 
 
+    /**
+	 *	name: login
+	 *	function: 显示的登陆界面
+	 */
+	public function login(){
+		$this->load->view("user/login.html");
+	}
+
 	/**
 	 * 获取用户在此小程序中的openid
 	 * @Author   yeweiyang
@@ -108,6 +116,8 @@ class UserInfo extends CI_Controller{
 			exit(0);
 		}
 		
+		var_dump("nihao");
+
 		$user = $this->session->userdata("user");
 		
 		if($user->islock == 0){
