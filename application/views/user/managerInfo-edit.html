@@ -1,0 +1,46 @@
+<link rel="stylesheet" type="text/css" href="/css/radio_style.css" />
+<nav class="content-header">
+	 <B>位置：</B>管理员信息维护中心&nbsp;>&nbsp;编辑管理员信息
+</nav>
+<table class="table table-bordered table-hover table-striped" style="width:600px; margin: 100px auto;" >
+	<form action="/manager/editHandler" method="post">
+		<tr>
+			<td style="background-color: #ECF7F9;width:20%;" align="center" >账号:</td>
+			<td><input type="text" width="30%" name="username" value="<?=$manager->username ?>"  readonly style="color:gray" /></td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;width:20%;" align="center" >姓名:</td>
+			<td><input type="text" width="30%" name="name" value="<?=$manager->name ?>" required /></td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" >权限:</td>
+			<td>
+				<div class="input-group">
+					<div class="radio radio-warning radio-inline">
+						<input type="radio" id="inlineRadio1" name="permission" value="0" <?=$manager->permission==0?"checked":""?> />
+						<label for="inlineRadio1">一级管理员 </label>
+					</div>
+					<div class="radio radio-primary radio-inline">
+						<input type="radio" id="inlineRadio2" name="permission" value="1" <?=$manager->permission==1?"checked":""?> />
+						<label for="inlineRadio2"> 二级管理员 </label>
+					</div>
+					<div class="radio radio-danger radio-inline">
+						<input type="radio" id="inlineRadio3" name="permission" value="2" <?=$manager->permission==2?"checked":""?> />
+						<label for="inlineRadio3"> 三级管理员 </label>
+				   </div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td align="center"></td>
+			<td align="left">
+				<input type="submit" class="btn btn-primary" value="确认修改" onClick="check()" />
+			</td>
+		</tr>
+	</form>
+</table>
+<script>
+document.body.onload = function(){
+	document.getElementById('manager').click();
+};
+</script>

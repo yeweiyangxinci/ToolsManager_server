@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>TQP ToolsManager</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/header.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/info_list.css"/>
+</head>
+<body>
+	<!--
+		描述：头部start
+	-->
+	<div class="nav top">
+		<div class="role">
+		 <div class="logged-user">
+			 <div class="media-object">
+				  <img alt="" src="/img/toplogo.png"/>
+			  </div>
+			  <div class="function-menu">
+				  <span><?= $user->ui_name ?>，欢迎登录！</span>
+				  <a onclick="loadpage('/manager/modifypassword')" href="javascript:void(0)">密码修改</a>
+				  <a href="/user/logoutHandler">安全退出</a>
+			  </div>
+		 </div>    
+		</div>
+	</div>

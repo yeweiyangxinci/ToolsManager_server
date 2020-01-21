@@ -1,0 +1,22 @@
+	<link rel="stylesheet" type="text/css" href="/css/footer.css"/>
+	<footer class="footer">
+		Copyright © 2020 四川交通职业技术学院 Zhen Li All Rights Reserved
+	</footer>
+	<script>
+		function layout(){
+			var maxh = $(window).height();
+			var toph = $(".top").height();
+			var bottom = $(".footer").height();
+			var item = $(".item").height()
+			$(".chart-main").height(maxh-toph-bottom-item-20);
+		/*	console.log("maxh=" + maxh);
+			console.log("toph=" + toph);
+			console.log("bottom=" + bottom);
+			console.log("item=" + item);
+			console.log(maxh-toph-bottom-item);*/
+		}
+		layout();
+		$(window).resize(function(){layout()});
+	</script>
+</body>
+</html>

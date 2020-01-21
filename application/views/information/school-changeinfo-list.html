@@ -1,0 +1,102 @@
+<div class="item">   
+	<nav class="content-header">
+		 <B>位置：</B>信息查询中心&nbsp;>&nbsp;学籍异动信息
+	</nav>
+	<div class="header-query">
+		<div class="row" style="margin:0px;">
+			<div class="col-md-12">
+				<form action="" role="form">
+					<div class="row">
+						<div class="col-sm-3">
+							<label class="form_query">学号查询：</label>
+							<input type="text"/>
+						</div>
+						<div class="col-sm-3">
+						    <label class="form_query">姓名查询：</label>
+							<input type="text" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-3">
+							<label class="form_query">异动类型：</label>
+							<select name="change-class" class="select_query">
+							    <option value="1">降级</option>
+								<option value="2">休学</option>
+								<option value="3">参军</option>
+								<option value="4">复学</option>
+								<option value="5">退学</option>
+								<option value="6">转专业</option>
+							</select>
+						</div>
+						<div class="col-sm-3">
+							<label class="form_query">异动时间：</label>
+							<input type="number" name="change-date" class="time_query" min="1980" step="1" max="2017"/>
+						</div>
+						<div class="col-sm-3 sex_query">
+						    <label class="form_query">复学时间：</label>
+							<input type="number" name="reinstate-date" class="time_query" min="1980" step="1" max="2017"/>
+						</div>
+						<div class="col-sm-3">
+							<a href="#" class="query">
+								<i class="fa fa-search"></i>&nbsp;查询
+							</a>
+							<a href="#" class="export">
+								<i class="fa  fa-share-square-o"></i>&nbsp;导出
+							</a>
+							<a href="#" class="add">
+								<i class="fa fa-plus">&nbsp;新增</i>
+							</a>  
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--
+	描述：信息列表
+-->
+<div class="row chart-main" align="center" style="overflow :auto;margin-bottom:45px;">
+    <table class="table table-striped table-hover" width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+      	<th>序号</th>
+        <th>学号</th>
+		<th>姓名</th>
+        <th>学业异动类型</th>
+        <th>异动时间</th>
+        <th>复学时间</th>
+        <th>原专业</th>
+        <th>现专业</th>
+        <th>学籍异动原因</th>
+      </tr>
+      <tr>
+      	<td>1</td>
+		<td>李林</td>
+        <td>201407211</td>
+        <td>休学</td>
+        <td>2014-03-01</td>
+        <td>2015-03-01</td>
+        <td>计算机科学与技术</td>
+        <td>计算机科学与技术</td>
+        <td>身体原因</td>
+
+      </tr>
+       <tr>
+       	<td>2</td>
+		<td>李林</td>
+		<td>201407211</td>
+        <td>休学</td>
+        <td>2014-03-01</td>
+        <td>2015-03-01</td>
+        <td>计算机科学与技术</td>
+        <td>计算机科学与技术</td>
+        <td>身体原因</td>
+      </tr>
+	</table>
+</div>
+<script>
+document.body.onload = function(){
+	document.getElementById('information').click();
+};
+</script>

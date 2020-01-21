@@ -1,0 +1,61 @@
+<link rel="stylesheet" type="text/css" href="/css/radio_style.css" />
+<nav class="content-header">
+	<B>位置：</B>课程信息中心>添加课程
+</nav>
+<table class="table table-bordered table-hover" style="width:700px; margin: 50px auto;" align="center" >
+	<form>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" required>学期:</td>
+			<td>
+				<select name="term-type" class="select_query" style="width:230px;">
+					<option value="1">2014-2015年度第一学期</option>
+					<option value="2">2014-2015年度第二学期</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" >课程号:</td>
+			<td><input type="text"  name="no" required/>&nbsp;课程号不区分大小写</td>
+		</tr>
+			<tr>
+			<td style="background-color: #ECF7F9;" align="center" >课程名:</td>
+			<td><input type="text"  name="name" required/></td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" required>课程属性:</td>
+			<td>
+				<div class="input-group" >
+					<div class="radio radio-warning radio-inline">
+						<input type="radio" id="inlineRadio1" value="0" name="type" checked>
+						<label for="inlineRadio1">必修</label>
+					</div>
+					<div class="radio radio-primary radio-inline">
+						<input type="radio" id="inlineRadio2" value="1" name="type">
+						<label for="inlineRadio2">选修</label>
+					</div>
+					<div class="radio radio-danger radio-inline">
+					   <input type="radio" id="inlineRadio3" value="2" name="type">
+					   <label for="inlineRadio3">任选</label>
+				   </div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" >成绩:</td>
+			<td><input type="text" maxlength="3" required/></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2">
+				<input type="submit" class="btn btn-info" value="确认添加" />
+				<a href="#" class="btn btn-info" style="margin-left: 100px;">
+					返&nbsp;&nbsp;&nbsp;&nbsp;回
+				</a>
+			</td>
+		</tr>
+	</form>
+</table>
+<script>
+document.body.onload = function(){
+	document.getElementById('student').click();
+};
+</script>

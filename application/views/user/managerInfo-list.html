@@ -1,0 +1,83 @@
+<link rel="stylesheet" type="text/css" href="/css/info_list.css" />
+<div class="item">
+    <nav class="content-header">
+		<B>位置：</B>管理员信息维护中心&nbsp;>&nbsp;管理员列表
+	</nav>
+<div class="header-query">
+	<div class="row" style="margin:0px;">
+		<div class="col-md-12">
+			<form action="" role="form">
+				<div class="row">
+					<div class="col-sm-3">
+						<label class="form_query">账号查询：</label>
+						<input type="text"/>
+					</div>
+					<div class="col-sm-3">
+						<label class="form_query">姓名查询：</label>
+						<input type="text" />
+					</div>
+			    </div>
+			    <div class="row">
+				    <div class="col-sm-3">
+						<label class="form_query">权限查询：</label>
+						<select name="privilege" class="select_query">
+							<option value="1">一级权限</option>
+							<option value="2">二级权限</option>
+							<option value="3">三级权限</option>
+						</select>
+					</div>
+					<div class="col-sm-3 sex_query">
+						<label class="form_query">锁&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;定：</label>
+						<span><input type="radio" name="lock" value="1"/>是</span>
+					    <span><input type="radio" name="lock" value="2"/>否</span>
+					</div>
+					<div class="col-sm-3">
+						<a href="#" class="query">
+							<i class="fa fa-search"></i>&nbsp;查询
+						</a>
+						<a href="#" class="export">
+							<i class="fa  fa-share-square-o"></i>&nbsp;导出
+						</a>
+						<a href="/course/exportHandler" class="add">
+							<i class="fa fa-plus"></i>&nbsp;新增
+						</a>  
+					</div>
+			    </div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>
+<div class="row chart-main" align="center" style="overflow :auto;margin-bottom:45px;">
+	<table class="table table-hover table-striped">
+		<tr>
+			<th>编号</th>
+			<th>管理员帐号</th>
+			<th>姓名</th>
+			<th>权限</th>
+			<th>锁定</th>
+			<th>操作</th>
+		</tr>
+<?php foreach($managers as $index=>$manager): ?>
+		<tr>
+			<td><?= $index+1 ?></td>
+			<td><?= $manager->username ?></td>
+			<td><?= $manager->name ?></td>
+			<td><?= ($manager->permission + 1) . "级" ?></td>
+			<td><?= $manager->islock == 1 ? "正常" : "已锁定" ?></td>
+			<td>
+				<a href="/manager/<?= $manager->islock == 0 ? "un":""?>lockHandler/<?= $manager->username ?>">
+					<?= $manager->islock == 1 ? "锁定" : "解除锁定" ?>
+				</a>|
+				<a href="/manager/edit/<?= $manager->username ?>">编辑</a>|
+				<a href="/manager/removeHandler/<?= $manager->username ?>">删除</a>
+			</td>
+		</tr>
+<?php endforeach; ?>
+	</table>
+</div>
+<script>
+document.body.onload = function(){
+	document.getElementById('manager').click();
+};
+</script>

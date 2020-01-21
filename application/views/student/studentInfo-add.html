@@ -1,0 +1,150 @@
+<style>
+.chart-main{text-align:center;margin:50px auto;}
+.chart-main h5{margin-bottom:15px;}
+.chart-main table{border-bottom:#cfe1f9 solid 4px;border-right:#cfe1f9 solid 1px;margin:5px auto;}
+.chart-main td{border-top:#cfe1f9 solid 1px; border-left:#cfe1f9 solid 1px; padding:6px 5px; }
+</style>
+<div class="item">
+<nav class="content-header">
+	 <B>位置：</B>学生信息中心&nbsp;>&nbsp;添加学生
+</nav>
+</div>
+<div class="chart-main">
+<h5>学生学籍信息基本表</h5>
+    <table class="table-hover table-striped" width="60%" cellpadding="0" cellspacing="0" align="center">
+	  <form>
+        <tr>
+            <td align="right" width="100" maxlength="33" required>姓名：</td>
+            <td><input type="text" name="username" maxlength="33" required/></td>
+            <td align="right" width="130">身份证号码：</td>
+            <td><input type="text" name="ID-card" id="IdCard" maxlength="50" required/></td>
+            <td rowspan="6" style="background-image:url(../img/photo.jpg);padding:20px;" height="120" width="100">
+			    <div align="center">
+				   <input type="file" style="width:80px; height:50px;"/>
+				</div>
+			</td>
+        </tr>
+		<tr>
+            <td align="right">学籍状态：</td>
+            <td>
+			    <input type="radio" name="shool-status" value="0"/>在籍
+				<label style="margin-left:40px;"></label>
+			    <input type="radio" name="shool-status" value="0"/>非在籍
+			</td>
+            <td align="right">学籍状态详情：</td>
+            <td>
+			    <select name="school-statue" class="select_query">
+					<option value="0">正常</option>
+					<option value="1">休学</option>
+					<option value="2">参军</option>
+					<option value="3">病假</option>
+					<option value="4">外出交流</option>
+				</select>
+			</td>
+        </tr>
+        <tr>
+            <td align="right">性别：</td>
+            <td>
+			    <input type="radio" name="sex" value="male" checked/>男
+				<label style="margin-left:40px;"></label>
+			    <input type="radio" name="sex" value="female"/>女
+			</td>
+            <td align="right">学号：</td>
+            <td><input type="text" name="number" maxlength="100" id="Id" required/></td>
+        </tr>
+        <tr>
+            <td align="right">出生日期：</td>
+            <td><input type="date" name="birth-date" style="width:180px;"/></td>
+            <td align="right">民族：</td>
+            <td><input type="text" name="nation" maxlength="10" required/></td>
+        </tr>
+		<tr>
+            <td align="right" width="100">专业：</td>
+            <td><input type="text" name="class"  maxlength="33" required/></td>
+            <td align="right" width="130">班级：</td>
+            <td><input type="text" name="major"  maxlength="33" required/></td>
+        </tr>
+        <tr>
+            <td align="right">专业方向：</td>
+            <td><input type="text" name="major-develop" maxlength="33" required/></td>
+            <td align="right">辅修专业：</td>
+            <td><input type="text" name="minor" maxlength="33" required/></td>
+        </tr>
+        <tr>
+            <td align="right">第二专业：</td>
+            <td><input type="text"  name="second-major" maxlength="33" required/></td>
+            <td align="right">学业导师：</td>
+            <td><input type="text"  maxlength="33" required/></td>
+        </tr>
+		<tr align="center">
+            <td colspan="3" height="40">
+                <div align="center">   
+                    <input type="submit" class="btn btn-info" style="color:white;" onclick="check();" value="保存信息"/>
+                </div>
+            </td>
+            <td colspan="2" height="40">
+                <div align="center">   
+                    <button class="btn btn-info"><a href="#"  style="color:white;text-decoration:none;">取消操作</a></button>
+                </div>
+            </td>
+        </tr>
+	  </form>
+    </table>
+</div>
+<script>
+
+     
+        $().ready(function() {
+            initLeftNavHeight();
+            initMenu();
+        })
+
+        /**初始化左侧导航栏高度**/
+        function initLeftNavHeight() {
+            initHeight();
+
+            function initHeight() {
+                var total = document.documentElement.clientHeight;
+                var topHeight = $("#top").height();
+                $("#leftNav").height(total - topHeight);
+            }
+
+            document.body.onresize = function() {
+                initHeight();
+            }
+        }
+
+        /**初始化菜单选项**/
+        function initMenu() {
+            //配置第一个手风琴的基本参数
+            var config01 = {
+                //配置菜单的MenuBoxId
+                menuBoxId: "#menuBox01",
+                //是否可以打开多个上级菜单
+                multiple: true,
+                //初始化打开的
+                openIndex: [2]
+            }
+            menuBox.init(config01);
+        }
+    
+
+</script>
+<script type="text/javascript">
+    function check(){
+	    var IdCard = document.getElementById("IdCard");
+		var Id = document.getElementById("Id");
+		var regxId=/^[0-9]*$/;
+	    var regxIdCard=/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
+		if(!regxIdCard.test(IdCard.value)){
+		    alert("输入身份证件号码有误!");
+			alert(IdCard.value);
+		}
+		else if(!regxId.test(Id.value)){
+		    alert("输入学生学号有误!");
+		}
+		else{
+		   
+		}
+	}
+</script>

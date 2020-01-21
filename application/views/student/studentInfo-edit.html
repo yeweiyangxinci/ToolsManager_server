@@ -1,0 +1,93 @@
+<style>
+.chart-main{text-align:center;margin:50px auto;}
+.chart-main h5{margin-bottom:15px;}
+.chart-main table{border-bottom:#cfe1f9 solid 4px;border-right:#cfe1f9 solid 1px;margin:5px auto;}
+.chart-main td{border-top:#cfe1f9 solid 1px; border-left:#cfe1f9 solid 1px; padding:6px 5px; }
+</style>
+<div class="item">
+<nav class="content-header">
+	 <B>位置：</B>学生信息中心&nbsp;>&nbsp;学生信息编辑
+</nav>
+</div>
+<div class="chart-main">
+<h5>学生学籍信息基本表</h5>
+    <table class="table-hover table-striped" width="60%" cellpadding="0" cellspacing="0" align="center">
+        <tr>
+            <td align="right" width="100" maxlength="33" required>姓名：</td>
+            <td><input type="text" name="username" maxlength="33"/></td>
+            <td align="right" width="130">身份证号码：</td>
+            <td><input type="text" name="ID-card" maxlength="50" required/></td>
+            <td rowspan="6"><div align="center"><img id="pic_face"  height="160" width="120" src="/img/photo.jpg" style="padding:2px 2px 5px; border:1px #ddd solid;"></div>&nbsp;</td>
+        </tr>
+		<tr>
+            <td align="right">学籍状态：</td>
+            <td>
+			    <input type="radio" name="shool-status" value="0"/>在籍
+				<label style="margin-left:35px;"></label>
+			    <input type="radio" name="shool-status" value="0"/>非在籍
+			</td>
+            <td align="right">学籍状态详情：</td>
+            <td>
+			    <select name="school-statue" class="select_query">
+					<option value="0">正常</option>
+					<option value="1">休学</option>
+					<option value="2">参军</option>
+					<option value="3">病假</option>
+					<option value="4">外出交流</option>
+				</select>
+			</td>
+        </tr>
+        <tr>
+            <td align="right">性别：</td>
+            <td>
+			    <input type="radio" name="sex" value="male"/>男
+			    <input type="radio" name="sex" value="female"/>女
+			</td>
+            <td align="right">学号：</td>
+            <td><input type="text" name="number" maxlength="100" required/></td>
+        </tr>
+        <tr>
+            <td align="right">出生日期：</td>
+            <td><input type="date" name="birth-date" /></td>
+            <td align="right">民族：</td>
+            <td><input type="text" name="nation" maxlength="10" required/></td>
+        </tr>
+		<tr>
+            <td align="right" width="100">专业：</td>
+            <td><input type="text" name="class"  required/></td>
+            <td align="right" width="130">班级：</td>
+            <td><input type="text" name="major"  required/></td>
+        </tr>
+        <tr>
+            <td align="right">专业方向：</td>
+            <td><input type="text" name="major-develop" required/></td>
+            <td align="right">辅修专业：</td>
+            <td><input type="text"  required/></td>
+        </tr>
+        <tr>
+            <td align="right">第二专业：</td>
+            <td><input type="text" required/></td>
+            <td align="right">学业导师：</td>
+            <td><input type="text"  maxlength="25" required/></td>
+        </tr>
+		<tr align="center">
+            <td colspan="3" height="40">
+                <div align="center">   
+                    <button class="btn btn-info"><a href="studentInfo-edit.html"  style="color:white;">编辑信息</a></button>
+                </div>
+            </td>
+            <td colspan="2" height="40">
+                <div align="center">   
+                    <button class="btn btn-info"><a href="#"  style="color:white;">删除信息</a></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<script>
+document.getElementById("stu").style.display="block";
+/*
+document.body.onload = function(){
+	document.getElementById('student').click();
+};*/
+</script>

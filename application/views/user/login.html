@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="ThemeBucket">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/login.css" />
+	<link rel="stylesheet" type="text/css" href="/css/radio_style.css" />
+	<title>登录界面</title>
+</head>
+<body class="login-body">
+	<div class="container">
+		<form class="form-signin" id="login_form" method="post" action="/user/loginHandler">
+			<div class="form-group">
+				<div class="input-group" >
+					<span class="input-group-addon">
+						<span class="fa fa-user">账 号</span>
+					</span>
+					<input type="text" class="form-control" name="username" id="user_login" required/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group" >
+					<span class="input-group-addon">
+						<span class="fa fa-unlock-alt">密 码</span>
+					</span>
+					<input type="password" class="form-control" name="password" id="password_login" required/>
+				</div>
+			</div>
+			<div class="modal_footer">
+				<input class="btn_login btn btn-block btn-info" type="submit" value="立即登录"/>
+			</div>
+		</form>
+	</div>
+	<script src="/js/jquery.min.js"></script>
+	<script>
+		$("#login_form").submit(function(){
+			var data = $("#login_form").serialize();
+			var ok = true;
+			$.ajax({
+				type: "post",
+				data: data,
+				url: $('#login_form')[0].action,
+				async: false,
+				success: function(data){
+					if(data == "ERROR"){
+						alert("账号或者密码错误！");
+						ok = false;
+					}else if(data == "LOCK"){
+						alert("账号已被锁定,请联系管理员解除锁定!");
+						ok = false;
+					}
+				}
+			});
+			return ok;
+		});
+	</script>
+</body>
+</html>

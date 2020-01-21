@@ -1,0 +1,181 @@
+<!--
+描述：左侧导航栏left-nav start
+-->
+<link rel="stylesheet" type="text/css" href="/css/slider.css"/>
+<link rel="stylesheet" type="text/css" href="/css/left-nav.css"/>
+<link rel="stylesheet" href="/css/font-awesome.min.css" />
+<link rel="stylesheet" href="/css/menu.css" />
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/menu.js"></script>
+<div id="nav-left">
+	<div id="leftNav" class="left-nav">
+            <div id="menuBox01" class="menuBox">
+                <ul class="spMenuBox">
+                    <li class="spMenuItem">
+                        <div class="spMenu">
+                            <i class="fa fa-graduation-cap"></i>
+                            <span>学生信息中心</span>
+                            <i class="fa fa-2x fa-angle-down"></i>
+                        </div>
+                        <ul class="subMenuBox">
+                            <li>
+								<span class="subMenu">
+									<a href="javascript:void(0)" onclick="loadpage('/student/query')">学生信息查询</a>
+								</span>
+							</li>
+                            <li>
+								<span class="subMenu">
+									<a href="javascript:void(0)" onclick="loadpage('/student/add')">添加学生</a>
+								</span>
+							</li>
+                        </ul>
+                    </li>
+                    <li class="spMenuItem">
+                        <div class="spMenu">
+                            <i class="fa fa-calendar"></i>
+                            <span>班级信息中心</span>
+                            <i class="fa fa-2x fa-angle-down"></i>
+                        </div>
+                        <ul class="subMenuBox">
+                            <li>
+								<span class="subMenu">
+									<a href="javascript:void(0)" onclick="loadpage('/classInfo/query')" >查询班级信息</a>
+								</span>
+							</li>
+                            <li>
+								<span class="subMenu">
+									<a href="javascript:void(0)" onclick="loadpage('/classInfo/add')" >添加班级</a>
+								</span>
+							</li>
+                        </ul>
+                    </li>
+                    <li class="spMenuItem">
+                        <div class="spMenu">
+                            <i class="fa fa-globe"></i>
+                            <span>日志查询中心</span>
+                            <i class="fa fa-2x fa-angle-down"></i>
+                        </div>
+                        <ul class="subMenuBox">
+                            <li>
+								<span class="subMenu">
+									<a href="javascript:void(0)" onclick="loadpage('/logInfo/query')">日志查询</a>
+								</span>
+							</li>
+                        </ul>
+                    </li>
+                    <li class="spMenuItem">
+                        <div class="spMenu">
+                            <i class="fa fa-envelope"></i>
+                            <span>信息查询中心</span>
+                            <i class="fa fa-2x fa-angle-down"></i>
+                        </div>
+                        <ul class="subMenuBox">
+                            <li>
+								<span class="subMenu">
+									<a href="javascript:void(0)" onclick="loadpage('/information/School_warning')" >学籍预警信息</a>
+								</span>
+							</li>
+                            <li>
+								<span class="subMenu">
+									<a href="javascript:void(0)" onclick="loadpage('/information/School_changed')" >学籍异动信息</a>
+								</span>
+							</li>
+                        </ul>
+                    </li>
+	<?php if($user->user_type == 'teacher'): ?>
+                    <li class="spMenuItem">
+                        <div class="spMenu">
+                            <i class="fa fa-maxcdn"></i>
+                            <span>管理员维护中心</span>
+                            <i class="fa fa-2x fa-angle-down"></i>
+                        </div>
+                        <ul class="subMenuBox">
+                            <li>
+								<span class="subMenu">
+									<a href="javascript:void(0)" onclick="loadpage('/manager/query')" >管理员信息查询</a>
+								</span>
+							</li>
+                            <li>
+								<span class="subMenu">
+									<a href="javascript:void(0)" onclick="loadpage('/manager/add')">添加管理员</a>
+								</span>
+							</li>
+                            <li>
+								<span class="subMenu">
+									<a href="javascript:void(0)" onclick="loadpage('manager/resetPassword')" >重置管理员密码</a>
+								</span>
+							</li>
+                        </ul>
+                    </li>
+	<?php endif; ?>
+                </ul>
+            </div>
+        </div>
+</div>
+<div class="slider_left" id="leftbar">
+	<a onClick="switchSysBar()" href="javascript:void(0);">
+		<img src="/img/pic23.jpg" />
+	</a>
+</div>
+<div class="slider_right" id="rightbar">
+	<a onClick="switchSysBar()" href="javascript:void(0);">
+		<img src="/img/pic24.jpg"/>
+	</a>
+</div>
+<div id="content">
+</div>
+<script type="text/javascript" src="/js/jquery.min.js" ></script>
+<script type="text/javascript" src="/js/Accordion.js" ></script>
+<script type="text/javascript">
+function switchSysBar(){
+	if(document.getElementById('leftbar').style.display == 'block' ){
+		document.getElementById('leftbar').style.display = "none";
+		document.getElementById('rightbar').style.display = "block";
+		document.getElementById('nav-left').style.display = "block";
+	}else{
+		document.getElementById('leftbar').style.display = "block";
+		document.getElementById('rightbar').style.display = "none";
+		document.getElementById('nav-left').style.display = "none";
+	}
+}
+</script>
+<script>
+
+function loadpage($url){
+	$("#content").load($url);
+}
+
+         $().ready(function() {
+            initLeftNavHeight();
+            initMenu();
+        })
+
+        //初始化左侧导航栏高度
+        function initLeftNavHeight() {
+            initHeight();
+
+            function initHeight() {
+                var total = document.documentElement.clientHeight;
+                var topHeight = $("#top").height();
+                $("#leftNav").height(total - topHeight);
+            }
+
+            document.body.onresize = function() {
+                initHeight();
+            }
+        }
+
+        //初始化菜单选项
+        function initMenu() {
+            //配置第一个手风琴的基本参数
+            var config01 = {
+                //配置菜单的MenuBoxId
+                menuBoxId: "#menuBox01",
+                //是否可以打开多个上级菜单
+                multiple: true,
+                //初始化打开的
+                openIndex: [0]
+            }
+            menuBox.init(config01);
+        }
+    </script>

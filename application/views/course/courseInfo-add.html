@@ -1,0 +1,66 @@
+<link rel="stylesheet" type="text/css" href="/css/radio_style.css" />
+<nav class="content-header">
+	<B>位置：</B>课程信息中心>添加课程
+</nav>
+<table class="table table-bordered table-hover" style="width:80%; margin-top: 50px;" align="center" >
+	<form action="/course/addHandler" method="post">
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" required>开课学院:</td>
+			<td>
+				<select name="collegeid">
+<?php foreach($colleges as $college): ?>
+					<option value="<?=$college->id?>"><?=$college->name?></option>
+<?php endforeach; ?>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" >课程号:</td>
+			<td><input type="text"  name="no" required/>&nbsp;课程号不区分大小写</td>
+		</tr>
+			<tr>
+			<td style="background-color: #ECF7F9;" align="center" >课程名:</td>
+			<td><input type="text"  name="name" required/></td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" >英文课程名:</td>
+			<td><input type="text"  name="english_name" required/></td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" >学分:</td>
+			<td><input type="number"  min="0" step="0.1" name="credit" required/></td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" required>课程属性:</td>
+			<td>
+				<div class="input-group" >
+					<div class="radio radio-warning radio-inline">
+						<input type="radio" id="inlineRadio1" value="0" name="type" checked>
+						<label for="inlineRadio1">必修</label>
+					</div>
+					<div class="radio radio-primary radio-inline">
+						<input type="radio" id="inlineRadio2" value="1" name="type">
+						<label for="inlineRadio2">选修</label>
+					</div>
+					<div class="radio radio-danger radio-inline">
+					   <input type="radio" id="inlineRadio3" value="2" name="type">
+					   <label for="inlineRadio3">任选</label>
+				   </div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2">
+				<input type="submit" class="btn btn-primary" value="确认添加" />
+				<a href="/course/query" class="btn btn-primary" style="margin-left: 100px;">
+					返回
+				</a>
+			</td>
+		</tr>
+	</form>
+</table>
+<script>
+document.body.onload = function(){
+	document.getElementById('course').click();
+};
+</script>

@@ -1,0 +1,92 @@
+<link rel="stylesheet" type="text/css" href="/css/radio_style.css" />
+<nav class="content-header">
+	<B>位置：</B>课程信息中心&nbsp;>&nbsp;编辑课程信息
+</nav>
+<form action="/classinfo/edithandler" method="post"><div align="center">
+	<table class="table table-bordered table-hover" style="width:600px; height:300px; margin-top: 50px;" align="center" >
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" >学院:</td>
+			<td>
+				<select id="college" name="collegeid">
+<?php foreach($colleges as $college): ?>
+					<option value="<?=$college->id?>"
+						<?=
+							$college->id == $classInfo->college ? "selected" : ""
+						?>
+					>
+						<?=$college->name?>
+					</option>
+<?php endforeach; ?>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" >专业:</td>
+			<td>
+				<select id="major" name="majorid">
+<?php foreach($majors as $major): ?>
+					<option value="<?=$major->no?>"
+						<?=
+							$major->no == $classInfo->major ? "selected" : ""
+						?>
+					>
+						<?= $major->name ?>
+					</option>
+<?php endforeach; ?>
+                </select>
+			</td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" >班级名称:</td>
+			<td><input type="text"  name="class_name" value="<?=$classInfo->name?>" required/></td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" >入学年份:</td>
+			<td><input type="number" id="year" name="entry" value="<?=$classInfo->entry?>" min="1980" max="2100" step="1" required/></td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" >标准学制:</td>
+			<td><input type="number" name="standard_schooling" value="<?=$classInfo->standard_schooling?>" min="1" max="10" step="1" required/></td>
+		</tr>
+		<tr>
+			<td style="background-color: #ECF7F9;" align="center" >班主任:</td>
+			<td><input type="text" name="headmaster" value="<?=$classInfo->headmaster?>" required/></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2">
+				<input type="submit" class="btn btn-primary" value="确认修改" />
+				<a href="/classinfo/query"  class="btn btn-primary"style="margin-left:100px;">取消</button>
+			</td>
+		</tr>
+		<input type="hidden" name="id" value="<?=$classInfo->id?>" />
+	</table>
+</div></form>
+<script>
+$(function(){
+	$("#college").change(function(){
+		var id = $("#college").val();
+		$.ajax({
+			type: "post",
+			url: "/major/loadMajorsByCollege",
+			data: "collegeid="+id,
+			success: function(data){
+				data = JSON.parse(data);
+				console.log(data);
+				$("#major").html("");
+				for(var i = 0; i < data.length; i++){
+					var op = new Option();
+					op.value = data[i].no;
+					if(op.value == "<?=$classInfo->major?>"){
+						op.selected = "selected";
+					}
+					op.innerHTML = data[i].name;
+					$("#major").append(op);
+				}
+			}
+		});
+	});
+})
+document.body.onload = function(){
+	document.getElementById('class').click();
+};
+</script>

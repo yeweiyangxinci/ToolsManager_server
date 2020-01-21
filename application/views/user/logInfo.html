@@ -1,0 +1,71 @@
+<link rel="stylesheet" type="text/css" href="/css/info_list.css" />
+<nav class="content-header">
+	 <B>位置：</B>日志信息中心&nbsp;>&nbsp;日志查询
+</nav>
+<div class="header-query">
+	<div class="row" style="margin:0px;">
+		<div class="col-md-12">
+			<form action="/logInfo/queryHandler"  method="post" role="form">
+				<div class="row">
+					<div class="col-sm-6">
+						 <div class="flow-element">
+							<label for="datepicker" style="color:white;”">按日期查询：</label>
+							<input type="date" name="date" style="width:200px;"/>
+						</div> 
+					</div>
+					<div class="col-sm-6">
+						 <a href="#" class="query"><i class="fa fa-search"></i>&nbsp;查询</a>
+						 <a href="#" class="add"><i class="fa  fa-share-square-o"></i>&nbsp;导出</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="row chart-main" align="center" style="overflow :auto;margin-bottom:45px;">
+    <table class="table table-striped table-hover" width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+	    <th>序号</th>
+        <th>管理员</th>
+        <th>操作时间</th>
+        <th>操作内容</th>
+      </tr>
+      <tr>
+        <td>1</td>
+		<td>20110011</td>
+        <td>2017-01-03</td>
+        <td>
+        	修改xxx同学学籍信息，添加15级计算153班xxx同学的学籍信息
+        </td>
+       </tr>
+       <tr>
+        <td>2</td>
+		<td>201408077</td>
+        <td>2017-02-02</td>
+        <td>
+        	修改xxx同学学籍信息，添加15级计算153班xxx同学的学籍信息
+        </td>
+      </tr>
+	  <tr>
+        <td>2</td>
+		<td>201408077</td>
+        <td>2017-02-02</td>
+        <td>
+        	修改xxx同学学籍信息，添加15级计算153班xxx同学的学籍信息
+        </td>
+      </tr>
+	   <tr>
+        <td>2</td>
+		<td>201408077</td>
+        <td>2017-02-02</td>
+        <td>
+        	修改xxx同学学籍信息，添加15级计算153班xxx同学的学籍信息
+        </td>
+      </tr>
+	</table>
+</div>
+<script>
+document.body.onload = function(){
+	document.getElementById('log').click();
+};
+</script>
