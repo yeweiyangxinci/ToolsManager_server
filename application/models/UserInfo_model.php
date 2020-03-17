@@ -6,6 +6,13 @@
  */
 class UserInfo_model extends CI_Model{
 
+	/**
+	 * 添加一个用户
+	 * @Author   yeweiyang
+	 * @DateTime 2020-02-10
+	 * @version  [version]
+	 * @return   [type]               [description]
+	 */
 	public function Insert_user($openid,
 							$isMonitor,
 							$ui_name,
@@ -38,6 +45,13 @@ class UserInfo_model extends CI_Model{
 	}
 
 
+	/**
+	 * 添加一个教师用户
+	 * @Author   yeweiyang
+	 * @DateTime 2020-02-10
+	 * @version  [version]
+	 * @return   [type]               [description]
+	 */
 	public function Inser_teacherinfo($openid,
 							$username,
 							$usersex,

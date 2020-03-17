@@ -19,20 +19,7 @@ class UserInfo extends CI_Controller{
 		$this->load->model("UserInfo_model");
 		$this->load->helper("wxutilsapi");
 	}
-
-	public function index()
-    {
-		// Create connection
-		$conn = new mysqli($servername, $username, $password);
-
-		// Check connection
-		if ($conn->connect_error) {
-		    die("Connection failed: " . $conn->connect_error);
-		} 
-		echo "Connected successfully";
-    }
-
-
+	
     /**
 	 *	name: login
 	 *	function: 显示的登陆界面
@@ -129,4 +116,12 @@ class UserInfo extends CI_Controller{
 		}
 	}
 
+	/**
+	 * name: logoutHandler
+	 * function: 登陆退出函数
+	 */
+	public function logoutHandler(){
+		$this->session->sess_destroy();
+		redirect("/userInfo/login");
+	}
 }

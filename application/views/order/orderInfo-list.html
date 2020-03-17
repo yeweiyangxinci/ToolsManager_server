@@ -1,0 +1,130 @@
+<div class="item">   
+	<nav class="content-header">
+		 <B>位置：</B>工具信息中心&nbsp;>&nbsp;查询工具
+	</nav>
+	<div class="header-query">
+		<div class="row" style="margin:0px;">
+			<div class="col-md-12">
+				<form action="" role="form">
+					<div class="row">
+						<div class="col-sm-3">
+							<label class="form_query">工具名称：</label>
+							<input type="text"/>
+						</div>
+						<div class="col-sm-3">
+						    <label class="form_query">借用用户：</label>
+							<input type="text" />
+						</div>
+						<div class="col-sm-3 sex_query">
+						    <label class="form_query">性&nbsp;&nbsp;别&nbsp;&nbsp;查&nbsp;&nbsp;询：</label>
+							<span><input type="radio" name="sex" value="1"/>男</span>
+							<span><input type="radio" name="sex" value="2"/>女</span>
+						</div>
+						<div class="col-sm-3" align="right">
+						    <a href="#" class="export">
+								<i class="fa fa-share-square-o"></i>&nbsp;信息导出
+							</a>
+							<a href="#" class="add">
+								<i class="fa fa-pencil-square-o">&nbsp;信息导入</i>
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-3">
+							<label class="form_query">班级查询：</label>
+							<input type="text" name="class"/>
+						</div>
+						<div class="col-sm-3">
+							<label class="form_query">院系查询：</label>
+							<select name="institution" class="select_query">
+							    <option value="1">计算机工程学院</option>
+								<option value="2">机械学院</option>
+							</select>
+						</div>
+						<div class="col-sm-3">
+							<label class="form_query">订单时间查询：</label>
+							<input type="number" name="date" class="time_query" min="1980" step="1" max="2017"/>
+						</div>
+						<div class="col-sm-3" align="right">
+							<a href="#" class="query">
+								<i class="fa fa-search"></i>&nbsp;信息查询
+							</a>
+                            <a href="#" class="add">
+								<i class="fa fa-plus">&nbsp;&nbsp;成绩导入</i>
+							</a>							
+						</div>
+					</div>
+				    <div class="row">
+					    <div class="col-sm-3">
+						    <label class="form_query">学籍状态：</label>
+							<select name="school-statue" class="select_query">
+							    <option value="0">全部</option>
+							    <option value="1">在籍</option>
+								<option value="2">非在籍</option>
+							</select>
+						</div>
+						<div class="col-sm-3">
+						    <label class="form_query">学籍详情：</label>
+							<select name="school-statue" class="select_query">
+								<option value="0">全部</option>
+								<option value="0">正常</option>
+								<option value="1">休学</option>
+								<option value="2">参军</option>
+								<option value="3">病假</option>
+								<option value="4">外出交流</option>
+							</select>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--
+	描述：信息列表
+-->
+<div class="row chart-main" align="center" style="overflow :auto;margin-bottom:45px;">
+    <table class="table table-striped table-hover" width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+	    <th>序号</th>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>院系</th>
+        <th>专业</th>
+		<th>在籍状态</th>
+        <th>操作</th>
+      </tr>
+      <tr>
+        <td>1</td>
+		<td>201408011</td>
+        <td>admin</td>
+        <td>男</td>
+        <td>计算机工程学院</td>
+        <td>软件工程</td>
+		<td>在籍</td>
+        <td>
+        	<a href="/student/detail"  class="edit">详细</a><span class="gray">&nbsp;|&nbsp;</span>
+        	<a href="/student/edit" class="edit">编辑</a><span class="gray">&nbsp;|&nbsp;</span>
+        	<a href="/student/remove" class="delete">删除</a>
+        	<a href="/student/addGrade" >成绩管理</a>
+        </td>
+      </tr>
+       <tr>
+        <td>2</td>
+		<td>201407041</td>
+        <td>admin</td>
+        <td>男</td>
+        <td>计算机工程学院</td>
+        <td>计算机科学与技术</td>
+		<td>在籍</td>
+        <td>
+        	<a href="studentInfo-detail.html"  class="edit">详细</a><span class="gray">&nbsp;|&nbsp;</span>
+        	<a href="studentInfo-edit.html" class="edit">编辑</a><span class="gray">&nbsp;|&nbsp;</span>
+        	<a href="studentInfo-add.html" class="delete">删除</a>
+        	<a href="studentInfo-AddGra.html" >成绩管理</a>
+        </td>
+      </tr>
+	</table>
+</div>
